@@ -1,0 +1,46 @@
+<!-- Searchbar-->
+<div class="container">
+    <div class="row">
+        <div class="col-1 mt-4" style="cursor: pointer" (click)="searchToggle()">
+            <img class="img-logo" [ngClass]="{highlight: IsSearchToggled == true }" src="https://thumbs.dreamstime.com/b/magnifying-glass-vector-icon-magnifier-illustration-symbol-search-logo-sign-web-sites-mobile-device-magnifying-glass-157727718.jpg">
+        </div>
+        <div class="col-11 mt-4 short" [ngClass]="{opened: IsSearchToggled == true }">
+            <label *ngIf="IsSearchToggled" class="" for="Searchbar">Buscar por artista: {{ inputLive }}</label>
+            <input #inputRef [(ngModel)]="inputLive" type="text" class="col form-control" id="Searchbar" placeholder="Lautaro Smith" value="Hola" (keyup.enter)="search()">
+            <span 
+            class="help-box" 
+            *ngIf="matchCounter == 0">
+            Búsqueda inválida, asegurate de escribir nombre y apellido con Mayuscula
+
+            </span>
+        </div>
+    </div>
+
+<!-- Generador de tarjetas por cada artista -->
+
+<div class="row">
+        <div class="col col-md-6 col-lg-4 col-sm-12 mt-3 mb-3 d-flex justify-content-center"
+            *ngFor="let in of artistasListaShow"
+            [class]="((in.nombre == artistaBuscado) || IsSearchToggled == false) ? '' : 'd-none'"
+            >
+            <div class="card">
+                <img src="{{ in.foto }}" alt="" class="card-img-top" />
+                <div class="card-body">
+                    <h3 class="card-title">{{ in.nombre }}</h3>
+                    <h5>- {{ in.canciones.nombre }}-</h5>
+                    <h3>{{ in.canciones.puntuacion | number: '1.1-1' }}/5</h3>
+                    <div>
+                        <i class="fa fa-star"
+                            *ngFor="let n of [].constructor(redondear(in.canciones.puntuacion)); let i = index">
+                        </i>
+                        <i class="fa fa-star-half" *ngIf="in.canciones.puntuacion % 1 >= 0.5">
+                        </i>
+                    </div>
+                    <h5>Nacionalidad: {{ in.nacionalidad }}</h5>
+                    <a class="btn btn-primary" [routerLink]="['../expand-artist', in.id]"
+                        (click)="expandArtist(in.id)">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

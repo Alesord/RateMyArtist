@@ -1,0 +1,42 @@
+<div class="row mt-3" *ngIf="artistaExpanded">
+    <div class="col-5">
+        <button routerLink="../../leaderboard-ranking" class="btn btn-danger mb-1">Go back</button>
+        <img src="{{ artistaExpanded.foto }}" alt="" class="profileImage" />
+    </div>
+    <div class="col-7 mt-5">
+        <h1>{{ artistaExpanded.nombre }}</h1>
+        <h5>{{ artistaExpanded.nacionalidad }}</h5>
+        <h3> 
+            <i class="fa fa-music"></i>
+            {{ artistaExpanded.canciones.nombre }}
+        </h3>
+        <div>
+             <h3>{{ artistaExpanded.canciones.puntuacion }}/5</h3>
+            <i class="fa fa-star" *ngFor="let n of [].constructor(redondear(artistaExpanded.canciones.puntuacion)); let i = index"></i>
+            <i class="fa fa-star-half" *ngIf="artistaExpanded.canciones.puntuacion % 1 >= 0.5"></i>
+        </div>
+    </div>
+</div>
+
+<div class="edit-box"></div>
+<div class="row mt-3">
+    <div class="col-5">
+        <app-expand-edit 
+        [editBoxToggled]="editmode" 
+        [identifierIn]="identifier" 
+        (artistaEmit)="artistaUpdate($event)"
+        [artistaEdit]="artistaExpanded"
+        ></app-expand-edit>
+    </div>
+    <div class="col-5 mt-2">
+        <button  class="btn btn-warning botonera" (click)="toggleEditMode()">Editar</button>
+        <button  class="btn btn-danger botonera"  (click)="OnDelete()">Borrar</button>
+        <hr>
+    </div>  
+</div>
+
+<div class="row mt-3">
+    <div class="col-12" style=" text-align: center;">
+    </div>
+</div>
+

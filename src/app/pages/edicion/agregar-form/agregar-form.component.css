@@ -1,0 +1,11 @@
+.formStyle {
+    min-height: 250px;
+    padding-top: 20px;
+    height: auto;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.css {
+    color: red;
+}

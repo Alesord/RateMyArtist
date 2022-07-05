@@ -1,0 +1,96 @@
+<div class="edit-box p-2" [ngClass]="{opened: editBoxToggled == true }">
+    <div class="">
+        <h2>Panel de edicion</h2>
+        <div class="row">
+            <div class="row gy-2 gx-3 align-items-center">
+                <form [formGroup]="artistForm" (ngSubmit)="OnSubmit()">
+                    <div class="row">
+                        <div class="col-5">
+                            <label class="" for="inlineFormInputName2">Nombre del Artista</label>
+                            <input *ngIf="artistaEdit"
+                                formControlName="nombreArtista" 
+                                type="text" 
+                                class="col form-control" 
+                                id="inlineFormInputName2"
+                                placeholder="Lautaro Smith"
+                                >
+                                <span 
+                                    *ngIf="!this.artistForm.get('nombreArtista').valid && this.artistForm.get('nombreArtista').touched"
+                                    class="error"
+                                    >
+                                    Nombre inválido.
+                                </span><br>
+                            <label class="" for="inlineFormInputGroupUsername2">Foto</label>
+                            <input 
+                                formControlName="foto" 
+                                type="text" 
+                                class="col-4 form-control" 
+                                id="inlineFormInputGroupUsername2" 
+                                placeholder="URL"
+                                >
+                                <span 
+                                    *ngIf="!this.artistForm.get('foto').valid && this.artistForm.get('foto').touched"
+                                    class="error"
+                                    >
+                                    URL inválida.
+                                </span><br>
+                        </div>
+                        <div class="col-4">
+                            <label class="" for="inlineFormInputGroupUsername2">Nacionalidad</label>
+                            <input 
+                                formControlName="nacionalidad" 
+                                type="text" 
+                                class="col form-control" 
+                                id="inlineFormInputGroupUsername2" 
+                                placeholder="..."
+                                >
+                                <span 
+                                    *ngIf="!this.artistForm.get('nacionalidad').valid && this.artistForm.get('nacionalidad').touched"
+                                    class="error"
+                                    >
+                                    Nacionalidad inválida.
+                                </span><br>
+                            <label class="" for="inlineFormInputGroupUsername2">Nombre de la canción</label>
+                            <input 
+                                formControlName="nombreCancion" 
+                                type="text" 
+                                class="col-4 form-control" 
+                                id="inlineFormInputGroupUsername2" 
+                                placeholder="..."
+                                >
+                                <span 
+                                    *ngIf="!this.artistForm.get('nombreCancion').valid && this.artistForm.get('nombreCancion').touched"
+                                    class="error"
+                                    >
+                                    Canción inválida.
+                                </span><br>
+                        </div>
+                        <div class="col-3">
+                            <label class="" for="inlineFormInputGroupUsername2">Rating</label>
+                            <input 
+                                formControlName="puntuacion" 
+                                type="number" 
+                                class="col form-control" id="inlineFormInputGroupUsername2" 
+                                placeholder="0.0/5"
+                                >
+                                <span 
+                                    *ngIf="!this.artistForm.get('puntuacion').valid && this.artistForm.get('puntuacion').touched"
+                                    class="error"
+                                    >
+                                    Rating inválido.
+                                </span><br>
+                            <button class="btn btn-warning mt-4" type="submit" [disabled]="!this.artistForm.valid">Enter</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row mb-3">
+                    <div class="col-auto">
+                    </div>
+                    <div class="col-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

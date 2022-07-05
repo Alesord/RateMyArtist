@@ -1,0 +1,67 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 formStyle">
+            <form [formGroup]="artistForm" (ngSubmit)="OnSubmit()">
+                <div class="row gy-2 gx-3 align-items-center">
+                    <div class="row">
+                        <div class="col-4">
+                            <label class="" for="inlineFormInputName2">Nombre del Artista</label>
+                            <input formControlName="nombreArtista" type="text" class="col-4 form-control mb-2 mr-sm-2" id="inlineFormInputName2"placeholder="Lautaro Smith">
+                            <span 
+                                *ngIf="!this.artistForm.get('nombreArtista').valid && this.artistForm.get('nombreArtista').touched"
+                                >
+                                    Ingresa un nombre válido.
+                            </span>
+                        </div>
+                        <div class="col-4">
+                            <label class="" for="inlineFormInputGroupUsername2">Nacionalidad</label>
+                            <input formControlName="nacionalidad" type="text" class="col-4 form-control" id="inlineFormInputGroupUsername2" placeholder="...">
+                                <span 
+                                    *ngIf="!this.artistForm.get('nacionalidad').valid && this.artistForm.get('nacionalidad').touched"
+                                    >
+                                    Ingresa una nacionalidad válida.
+                                </span>
+                        </div>
+                        <div class="col-4">
+                            <label class="" for="inlineFormInputGroupUsername2">Foto</label>
+                            <input formControlName="foto" type="text" class="col-4 form-control" id="inlineFormInputGroupUsername2" placeholder="URL">
+                                <span 
+                                    *ngIf="!this.artistForm.get('foto').valid && this.artistForm.get('foto').touched"
+                                    >
+                                        Ingresa un URL válido.
+                                </span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label class="" for="inlineFormInputGroupUsername2">Nombre de la canción</label>
+                            <input formControlName="nombreCancion" type="text" class="col-4 form-control" id="inlineFormInputGroupUsername2" placeholder="...">
+                                <span 
+                                    *ngIf="!this.artistForm.get('nombreCancion').valid && this.artistForm.get('nombreCancion').touched"
+                                    >
+                                    Ingresa un nombre de canción válido.
+                                </span>
+                        </div>
+                        <div class="col-6">
+                            <label class="" for="inlineFormInputGroupUsername2">Rating</label>
+                            <input formControlName="puntuacion" type="number" class="col-4 form-control" id="inlineFormInputGroupUsername2" placeholder="Con decimales">
+                                <span 
+                                    *ngIf="!this.artistForm.get('puntuacion').valid && this.artistForm.get('puntuacion').touched"
+                                    >
+                                    Ingresa una puntuacion válida.
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2" [disabled]="!this.artistForm.valid">Agregar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>

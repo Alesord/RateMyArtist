@@ -1,0 +1,27 @@
+.edit-box {
+    height: 0%;
+    width:100%; 
+    background: lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    transition-duration: 1s;
+    margin-top: -17px;
+}
+
+.input-edit-m {
+    width: 40%;
+    min-width: 200px;
+}
+
+.input-edit-s {
+    width: 10%
+}
+
+.opened {
+    height: 100%;
+    padding-bottom: 5px;
+}
+
+.error {
+    color: red;
+}

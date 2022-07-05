@@ -1,0 +1,71 @@
+.app-component {
+    width: 98%;
+}
+
+.contenido {
+    margin-top: 40px;
+}
+
+.main-box {
+    padding: 0;
+    height: 100vh;
+    background: rgb(231, 231, 231);
+    width: 70px;
+    overflow: hidden;
+}
+.main-box-fixed {
+    padding: 0;
+    height: 100vh;
+    background: rgb(231, 231, 231);
+    width: 70px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+    transition-duration: 0.3s;
+}
+
+.main-box-fixed:hover {
+    background: rgb(231, 231, 231);
+    width: 200px;
+    transition-duration: 0.3s;
+}
+
+.menu-opciones {
+    list-style: none;
+    line-height: 60px;
+    padding-left: 0px;
+    height: 100%;
+    color: black;
+}
+
+.menu-opciones li{
+    font-size: 18px;
+    font-weight: 600px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    font-weight: bold;
+    display: flex;
+    
+}
+
+.menu-opciones li:hover {
+    background: rgba(50, 150, 233, 0.692);
+    color: white;
+    width: 230px;
+    display: hidden;
+}
+
+
+.menu-opciones li i {
+    margin-left: 25px;
+    font-size: 40px;
+    margin: 0 20px 0 20px;
+    position: relative;
+    top: 15px;
+    text-align: center;
+}
+
+.active {
+    background: rgba(50, 150, 233, 0.692);
+    color: white;
+}

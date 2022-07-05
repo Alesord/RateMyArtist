@@ -1,0 +1,29 @@
+.profileImage {
+    height: 600px;
+    width: inherit;
+    object-fit: cover;
+    object-position: top;
+    width: -webkit-fill-available;
+}
+.hide {
+    width: 0;
+}
+i {
+    font-size: 20px;
+}
+.botonera {
+    margin: 0 5px 0 auto;
+}
+
+.edit-box {
+    height: 15px;
+    width:68%; 
+    background: lightgray;
+    overflow: hidden;
+    transition-duration: 1s;
+    position: fixed;
+}
+
+.error {
+    color: red;
+}
